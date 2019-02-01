@@ -3,10 +3,22 @@
   <head>
     <title>Parcel Sandbox</title>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="src/styles.css" />
   </head>
 
   <body>
-    <div id="app">{{message}}! This is {{name}}'s Sandbox</div>
+    <div class="nav-bar"></div>
+
+    <div id="app">
+      <div class="cart"><p>Cart({{cart.length}})</p></div>
+      <!-- components -->
+      <product
+        :premium="premium"
+        @add-to-cart="updateCart"
+        @remove-from-cart="removeItem"
+      ></product>
+      <!-- @add-to-cart is listening to the event -->
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="main.js"></script>
